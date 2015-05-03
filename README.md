@@ -1,5 +1,5 @@
 # Still on the drawing board
 
 
-# ProcessingIOS
-IOS mode for Processing.
+# IOSMode for Processing
+IOS mode for Processing built on top of the Processing 2.0 Mode Template by Florian Jenett and Martin Leopold
