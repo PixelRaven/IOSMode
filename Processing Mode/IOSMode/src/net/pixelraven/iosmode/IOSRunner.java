@@ -48,10 +48,12 @@ public class IOSRunner {
 	 * Run the code.
 	 */
 	public void launch(IOSBuild build, boolean present) {
+		//TODO: Implement & clean up
+		/*
 		needsReboot = build.usesOpenGL;
 		ensureParallel();
 		String[] a = buildSketchArgs(build, present);
-		communicator.sendSketch(a);
+		communicator.sendSketch(a);*/
 	}
 
 	/*

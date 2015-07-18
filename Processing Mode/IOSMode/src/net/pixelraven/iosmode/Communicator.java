@@ -12,10 +12,8 @@ import processing.app.exec.StreamRedirectThread;
 
 /**
  * 
- * A class that sends data to and gets data from the running sketch process.
- * Sends start signals, stop signals, and sketches.
- * 
- * Dafuk does this do? God knows
+ * Communicates with other windows and stuff
+ * TODO: Clean up crew inbound
  * 
  */
 

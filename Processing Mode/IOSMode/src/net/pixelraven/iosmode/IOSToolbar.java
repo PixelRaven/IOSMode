@@ -11,9 +11,7 @@ import processing.app.EditorToolbar;
 
 /**
  * 
- * The row of icons at the top of the PDE. Handles images, titles, and clicking
- * events.
- * Thanks kazimuth for the class layout!
+ * Creates the toolbar and handles clicks.
  * 
  */
 

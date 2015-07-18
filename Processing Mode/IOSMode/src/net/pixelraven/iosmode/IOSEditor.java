@@ -20,14 +20,14 @@ import processing.mode.java.JavaToolbar;
 /**
  * 
  * The main editor class. 
- * Thanks kazimuth for the class layout!
  * 
  */
 @SuppressWarnings("serial")
 public class IOSEditor extends Editor {
 
 	IOSMode IMode;
-	IOSKeyListener listener; //handles syntax highlighting / indents
+	//handles syntax highlighting/indents
+	IOSKeyListener listener;
 
 	private IOSRunner runner;
 
@@ -57,6 +57,7 @@ public class IOSEditor extends Editor {
 	 * Build menus.
 	 */
 	@Override
+	//Build the 'File' menu
 	public JMenu buildFileMenu() {
 		//Okay, this is kinda weird
 		String appTitle = IOSToolbar.getTitle(IOSToolbar.BUILD, false);  //get export string
@@ -72,16 +73,19 @@ public class IOSEditor extends Editor {
 	}
 
 	@Override
-	public JMenu buildHelpMenu() { //TODO implement
+	//Build the 'Help' menu
+	public JMenu buildHelpMenu() { 
+		//TODO implement
 		JMenu menu = new JMenu("Help");
-		JMenuItem item = new JMenuItem("help is for weaklings");
+		JMenuItem item = new JMenuItem("Help is for the weak");
 		item.setEnabled(false);
 		menu.add(item);
 		return menu;
 	}
 
 	@Override
-	public JMenu buildSketchMenu() { //the 'Sketch' menu, if that wasn't obvious
+	//Build the 'Sketch' menu
+	public JMenu buildSketchMenu() {
 		JMenuItem runItem = Toolkit.newJMenuItem(IOSToolbar.getTitle(IOSToolbar.EMULATE, false), 'R');
 		runItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -123,16 +127,20 @@ public class IOSEditor extends Editor {
 		Base.showMessage("Sorry", "You can't do that yet."); //TODO implement
 	}
 
-	//Note that I'm doing the build here instead of in IOSMode, Idk why
+	//Note that I'm doing the build here instead of in IOSMode
 	public void handleRun() {
 		toolbar.activate(IOSToolbar.EMULATE);
 		new Thread(new Runnable() {
 			public void run() {
-				IOSBuild build = new IOSBuild(sketch, IMode);	//create build
+				//create build
+				IOSBuild build = new IOSBuild(sketch, IMode);
 				try {
-					build.build();								//run build
-					//runner.launch(build, false);				//launch the build
-				} catch (Exception e) {                         //Ooh nooooo!
+					//run build
+					build.build();	
+					runner.launch(build, false);				
+				} 
+				//Bad news
+				catch (Exception e) {
 					statusError("FUUUUUUUUUUUUU..... Something went wrong!");
 					System.err.println("Crashed on launch of emulator! Error message: \n" + e.getMessage());
 				}
